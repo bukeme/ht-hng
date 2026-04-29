@@ -169,7 +169,7 @@ export function HabitForm({
             </p>
           ) : null}
 
-          <DialogFooter className="space-x-2 sm:gap-0">
+          <DialogFooter className="gap-2">
             <Button
               type="button"
               variant="outline"
