@@ -135,14 +135,11 @@ test.describe("Habit Tracker app", () => {
     await page.getByTestId("auth-signup-email").fill("offline@example.com");
     await page.getByTestId("auth-signup-password").fill("password123");
     await page.getByTestId("auth-signup-submit").click();
-    console.log("URL after reload 1:", page.url());
 
     await page.waitForLoadState("networkidle");
     await context.setOffline(true);
 
     await page.reload({ waitUntil: "domcontentloaded" }).catch(() => {});
-    console.log("URL after reload 2:", page.url());
-    await page.screenshot({ path: "after-reload.png", fullPage: true });
     await expect(page.getByTestId("dashboard-page")).toBeVisible();
 
     await context.close();
